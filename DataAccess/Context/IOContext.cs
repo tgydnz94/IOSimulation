@@ -25,6 +25,8 @@ namespace DataAccess.Context
             modelBuilder.Entity<Category>().HasKey(a => a.Id);
             modelBuilder.Entity<Instructor>().HasKey(a => a.Id);
             modelBuilder.Entity<Course>().HasKey(a => a.Id);
+
+
         }
     }
 }

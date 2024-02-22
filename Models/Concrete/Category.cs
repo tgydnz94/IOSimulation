@@ -10,6 +10,8 @@ namespace Models.Concrete
     public class Category : BaseModel
     {
         public string CategoryName { get; set; }
-        public int CourseId { get; set; }
+
+        //navigation property
+        public List<Course> Courses { get; set; }
     }
 }

@@ -14,9 +14,9 @@ namespace Models.Concrete
         public string Title { get; set; }
         public string Description { get; set; }
 
-        //ilişkisel veri tabanı için gerekli bağlantı olarak tanımlanabilir
-        public int InstructorId { get; set; }
-        public int CategoryId { get; set; }
+        //navigation property
+        public List<Instructor> Instructors { get; set; }
+        public List<Category> Categories { get; set; }
 
         // fotoğraf eklemek için kullanacağız.
         public string Image {  get; set; }

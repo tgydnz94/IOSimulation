@@ -12,5 +12,9 @@ namespace Models.Concrete
         public string FirstName { get; set; }
         public string LastName { get; set; }
         public string FullName => $"{FirstName} + {LastName}";
+        
+        //navigation property
+        public int CourseId { get; set; }
+        public Course Course { get; set; }
     }
 }
