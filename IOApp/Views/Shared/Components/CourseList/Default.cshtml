@@ -11,10 +11,11 @@
     </ul>
 </div>
 
-@foreach(var item in Model){
+@foreach (var item in Model)
+{
     <div class="card" style="width: 18rem;">
 
-        <img src="@item.Image" class="card-img-top" alt="...">
+        <img src="~ /images/default.png" class="card-img-top" alt="...">
         <div class="card-body">
             <h5 class="card-title">@item.Title</h5>
             <p class="card-text">@item.Description</p>

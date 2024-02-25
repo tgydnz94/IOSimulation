@@ -1,0 +1,49 @@
+﻿@model Course
+
+
+<div class="content-wrapper d-flex align-items-center auth">
+
+
+    <div class="col-12 grid-margin stretch-card">
+        <div class="card">
+            <div class="card-body">
+                <div class="row">
+                    <h3> Kurs Oluştur </h3>
+                </div>
+                <div class="row">
+
+                    <form asp-action="Add" method="post" enctype="multipart/form-data">
+
+                        <div class="form-group">
+                            <label> Başlık </label>
+                            <input asp-for="Title" type="text" class="form-control" />
+                            <span asp-validation-for="Title" class="text-danger"></span>
+                        </div>
+
+                        <div class="form-group">
+                            <label> Açıklama </label>
+
+                            <textarea cols="60" rows="5" asp-for="Description" type="text" class="form-control"></textarea>
+                            <span asp-validation-for="Description" class="text-danger"></span>
+                        </div>
+
+                        <div class="form-group">
+                            <label> Fotoğraf Yükle </label>
+                            <input asp-for="ImagePath" type="file" class="form-control" />
+                            <span asp-validation-for="ImagePath" class="text-danger"></span>
+                        </div>
+
+
+
+                        <div class="form-group">
+                            <button type="submit" class="btn btn-success">OLUŞTUR</button>
+                        </div>
+
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+</div>

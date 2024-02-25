@@ -26,6 +26,9 @@ namespace DataAccess.Context
             modelBuilder.Entity<Instructor>().HasKey(a => a.Id);
             modelBuilder.Entity<Course>().HasKey(a => a.Id);
 
+            modelBuilder.Entity<Course>().HasData(
+                new Course() { Id = 1, Description = "burası açıklama kısmı", Image = "~/wwwroot/images/default.png", Title="başlık" });
+
 
         }
     }

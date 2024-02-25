@@ -11,17 +11,17 @@ namespace Models.Concrete
 {
     public class Course : BaseModel
     {
-        public string Title { get; set; }
-        public string Description { get; set; }
+        public string? Title { get; set; }
+        public string? Description { get; set; }
 
         //navigation property
-        public List<Instructor> Instructors { get; set; }
-        public List<Category> Categories { get; set; }
+        public List<Instructor>? Instructors { get; set; }
+        public List<Category>? Categories { get; set; }
 
         // fotoğraf eklemek için kullanacağız.
-        public string Image {  get; set; }
+        public string? Image {  get; set; }
 
         [NotMapped]
-        public IFormFile ImagePath { get; set; }
+        public IFormFile? ImagePath { get; set; }
     }
 }
