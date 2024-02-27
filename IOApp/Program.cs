@@ -1,6 +1,7 @@
 using DataAccess.Abstract;
 using DataAccess.Concrete;
 using DataAccess.Context;
+using IOApp.Models.MappingWithMapper;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -8,6 +9,7 @@ builder.Services.AddControllersWithViews();
 builder.Services.AddRazorPages();
 
 builder.Services.AddDbContext<IOContext>();
+builder.Services.AddAutoMapper(typeof(MapRoute));
 
 builder.Services.AddScoped<ICategoryDal,CategoryDal>();
 builder.Services.AddScoped<ICourseDal,CourseDal>();

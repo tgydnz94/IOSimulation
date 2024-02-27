@@ -1,4 +1,6 @@
-﻿using DataAccess.Abstract;
+﻿using AutoMapper;
+using DataAccess.Abstract;
+using IOApp.Models.Dtos;
 using Microsoft.AspNetCore.Mvc;
 using Models.Concrete;
 
@@ -7,9 +9,12 @@ namespace IOApp.Controllers
     public class CourseController : Controller
     {
         private readonly ICourseDal _courseDal;
-        public CourseController(ICourseDal courseDal)
+        private readonly IMapper _mapper;
+
+        public CourseController(ICourseDal courseDal, IMapper mapper)
         {
                 _courseDal = courseDal;
+            _mapper=mapper;
         }
         public IActionResult Add()
         {
@@ -17,13 +22,11 @@ namespace IOApp.Controllers
         }
 
         [HttpPost]
-        public IActionResult Add(Course course)
+        public IActionResult Add(AddCourseDto dto)
         {
-            course.Title = "Kurs Başlığı";
-            course.Description = "Kurs açıklaması";
-            course.Image = "~/wwwroot/images/default.png";
+            var course = _mapper.Map<Course>(dto);
             _courseDal.Add(course);
-            return RedirectToAction("Add");
+            return RedirectToAction("Index", "Main");
         }
     }
 }
