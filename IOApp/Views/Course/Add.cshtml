@@ -17,21 +17,27 @@
 
                         <div class="form-group">
                             <label> Başlık </label>
-                            <input asp-for="Title" type="text" class="form-control" />
-                            <span asp-validation-for="Title" class="text-danger"></span>
+                            @* <input asp-for="Title" type="text" class="form-control" id="Title" /> *@
+
+                            @Html.TextBoxFor(prop => prop.Title, new {@class ="form-control"})
+                            @* <span asp-validation-for="Title" class="text-danger"></span> *@
                         </div>
 
                         <div class="form-group">
                             <label> Açıklama </label>
 
-                            <textarea cols="60" rows="5" asp-for="Description" type="text" class="form-control"></textarea>
-                            <span asp-validation-for="Description" class="text-danger"></span>
+                            @* <textarea cols="60" rows="5" asp-for="Description" type="text" class="form-control" id="Description"></textarea> *@
+                            @Html.TextAreaFor(prop => prop.Description, new {@class = "form-control"})
+                            @* <span asp-validation-for="Description" class="text-danger"></span> *@
                         </div>
 
                         <div class="form-group">
                             <label> Fotoğraf Yükle </label>
-                            <input asp-for="ImagePath" type="file" class="form-control" />
-                            <span asp-validation-for="ImagePath" class="text-danger"></span>
+                            @* <input asp-for="ImagePath" type="file" class="form-control" /> *@
+
+                            @Html.TextBoxFor(prop => prop.ImagePath, new {type = "file"})
+
+                            @* <span asp-validation-for="ImagePath" class="text-danger"></span> *@
                         </div>
 
 

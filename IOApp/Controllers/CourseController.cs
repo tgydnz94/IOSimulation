@@ -25,6 +25,14 @@ namespace IOApp.Controllers
         public IActionResult Add(AddCourseDto dto)
         {
             var course = _mapper.Map<Course>(dto);
+            using var image = Image.Load(dto.ImagePath.OpenReadStream());  // fotoğrafı yükleyip okuduk
+            image.Mutate(a => a.Resize(80, 80));
+
+            Guid guid = Guid.NewGuid();
+            image.Save($"wwwroot/images/{guid}.jpeg");
+
+            course.Image = $"/images/{guid}.jpeg";
+
             _courseDal.Add(course);
             return RedirectToAction("Index", "Main");
         }
